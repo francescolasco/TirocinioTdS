@@ -6,7 +6,7 @@ x_bar = 1;
 
 %% 1:
 
-u = function_1(A,B,ni,x_bar);
+u = conMinEn(A,B,ni,x_bar);
 
 % printiamo a schermo il controllo ottenuto
 disp(u)
