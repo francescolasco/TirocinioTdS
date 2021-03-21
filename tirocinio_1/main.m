@@ -24,8 +24,8 @@ disp(J)
 
 % studio con autovalori reali concordi positivi%
 
-lmbd1 = 6;
-lmbd2 = -5;
+lmbd1 = 2;
+lmbd2 = 1;
 
 A = [lmbd1 0;
     0 lmbd2];
@@ -37,13 +37,46 @@ x_bar = [15;10];
 
 J = [];
 
-ni_max = 10;
+ni_max = 25;
 
 for ni = 2:ni_max
    J = [J,energiaTD(conMinEn(A,B,ni,x_bar))];
 end
 
+figure(1)
+
+subplot(2,2,1)
 plot(J)
+title('autovalori reali concordi positivi')
+
+
+% studio con autovalori reali concordi negativi%
+
+lmbd1 = -2;
+lmbd2 = -1;
+
+A = [lmbd1 0;
+    0 lmbd2];
+
+B = [1;
+    1];
+
+x_bar = [15;10];
+
+J = [];
+
+ni_max = 25;
+
+for ni = 2:ni_max
+   J = [J,energiaTD(conMinEn(A,B,ni,x_bar))];
+end
+
+figure(1)
+
+subplot(2,2,2)
+plot(J)
+title('autovalori reali concordi negativi')
+
 
 
 
