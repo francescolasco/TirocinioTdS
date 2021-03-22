@@ -3,7 +3,7 @@ function J = energiaTD(u)
     J = 0;
     for i = 1:size(u,1)
         ui = cell2mat(u(i));
-        J = J + (transpose(ui)*ui);
+        J = J + (ctranspose(ui)*ui);
     end
   end
 

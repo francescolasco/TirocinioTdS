@@ -24,8 +24,8 @@ disp(J)
 
 % studio con autovalori reali concordi positivi%
 
-lmbd1 = 2;
-lmbd2 = 1;
+lmbd1 = 3;
+lmbd2 = 7;
 
 A = [lmbd1 0;
     0 lmbd2];
@@ -50,10 +50,10 @@ plot(J)
 title('autovalori reali concordi positivi')
 
 
-% studio con autovalori reali concordi negativi%
+% studio con autovalori reali discordi %
 
-lmbd1 = -2;
-lmbd2 = -1;
+lmbd1 = 3;
+lmbd2 = -7;
 
 A = [lmbd1 0;
     0 lmbd2];
@@ -75,7 +75,7 @@ figure(1)
 
 subplot(2,2,2)
 plot(J)
-title('autovalori reali concordi negativi')
+title('autovalori reali discordi')
 
 
 
