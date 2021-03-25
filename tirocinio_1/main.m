@@ -7,7 +7,7 @@ B = [1 0
      0 1];
  
 ni = 5;
-x_bar = transpose([5 10 0]);
+x_bar = [5; 10; 0];
 
 
 %% 1:
@@ -25,34 +25,6 @@ disp(J)
 % studio con autovalori reali concordi positivi%
 
 lmbd1 = 3;
-lmbd2 = 7;
-
-A = [lmbd1 0;
-    0 lmbd2];
-
-B = [1;
-    1];
-
-x_bar = [15;10];
-
-J = [];
-
-ni_max = 25;
-
-for ni = 2:ni_max
-   J = [J,energiaTD(conMinEn(A,B,ni,x_bar))];
-end
-
-figure(1)
-
-subplot(2,2,1)
-plot(J)
-title('autovalori reali concordi positivi')
-
-
-% studio con autovalori reali discordi %
-
-lmbd1 = 3;
 lmbd2 = -7;
 
 A = [lmbd1 0;
@@ -61,22 +33,37 @@ A = [lmbd1 0;
 B = [1;
     1];
 
-x_bar = [15;10];
+x_bar = [1;1];
 
 J = [];
 
-ni_max = 25;
+ni_max = 5;
 
 for ni = 2:ni_max
    J = [J,energiaTD(conMinEn(A,B,ni,x_bar))];
 end
 
 figure(1)
-
-subplot(2,2,2)
 plot(J)
-title('autovalori reali discordi')
+title('autovalori reali concordi positivi')
 
+u = conMinEn(A,B,ni,x_bar);
+x_zero = [0;0];
+stati = rispostaStato(A,B,u,x_zero)
 
+figure(2)
+subplot(3,1,1)
+plot(stati(1,:))
+title('x1')
+grid on
 
+subplot(3,1,2)
+plot(stati(2,:))
+title('x2')
+grid on
+
+subplot(3,1,3)
+plot(cell2mat(u)')
+title('u')
+grid on
 
