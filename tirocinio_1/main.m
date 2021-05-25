@@ -230,3 +230,6 @@ plot(cell2mat(u))
 title('\textbf{Ingresso: u}','Interpreter','Latex')
 legend('$\bar{x}_{1}$','$\bar{x}_{2}$','$\bar{x}_{3}$','$\bar{x}_{4}$','Interpreter','Latex')
 grid on
+
+
+

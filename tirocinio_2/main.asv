@@ -31,19 +31,17 @@ x_bar = x(size(x,1),:)';
 
 % 3)
 
-Ti = t_bar*[0.1 0.25 0.5 0.75 1 1.5 1.75 2]; % Vettore dei tempi da sperimentare
-u = {};                                      % inizializzo un vettore che riempirò di handle di funzioni u(t), ingressi per i Ti
+Ti = Tbar*[0.1 0.25 0.5 0.75 1 1.5 1.75 2]; %Vettore dei tempi da sperimentare
+u = zeros(1,size(Ti,2));                    % inizializzo un vettore che riempirò di handle di funzioni u(t), ingressi per i Ti
 
 
 for i = 1:size(Ti,2)
-   u{i} = conMinEn(A,B,x_bar,Ti(i));
+   u(i) = conMinEn(A,B,x_bar,Ti(i));
 end
 
 
-% esempio di simulazione per t = Tbar
 
-
-[y,tOut,x] = lsim(sys,u{5}(t),t);
+[y,tOut,x] = lsim(sys,u(t),t);
 
 figure(2)
 plot(t,x)
